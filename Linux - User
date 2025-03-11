@@ -1,0 +1,12 @@
+# Add User
+sudo adduser kuranzi
+sudo usermod -aG sudo kuranzi
+groups kuranzi
+
+# Remove Pass Promt
+sudo visudo
+  kuranzi ALL=(ALL:ALL) NOPASSWD:ALL
+
+# Disable root Login
+sudo nano /etc/ssh/sshd_config
+sudo service ssh restart

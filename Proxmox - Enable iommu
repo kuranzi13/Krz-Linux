@@ -1,0 +1,16 @@
+# Edit Modules
+nano /etc/modules
+  vfio
+  vfio_iommu_type1
+  vfio_pci
+  vfio_virqfd
+
+# Edit Grub
+nano /etc/default/grub
+  GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu-pt"
+
+# update Grub
+update-grub
+reboot
+
+dmesg | grep -e DMAR -e IOMMU
